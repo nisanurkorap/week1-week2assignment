@@ -16,35 +16,35 @@
 // How to run:      ./mario
 // How to check:    check50 cs50/problems/2024/x/mario/less
 
-#include <cs50.h>
 #include <stdio.h>
 
 int main(void)
 {
     int height;
+
+    // Kullanıcıdan 1–8 arasında yükseklik al
     do
     {
-       height = get_int("Height: ");
-
+        printf("Height: ");
+        scanf("%d", &height);
     }
     while (height < 1 || height > 8);
 
-
+    // Piramidi yazdır
     for (int row = 1; row <= height; row++)
     {
+        // Boşlukları yazdır
         for (int space = 0; space < height - row; space++)
         {
             printf(" ");
         }
 
-
-        // TODO: Print (row) hashes using a for loop.
-        for(int hash = 0; hash < row; hash++)
+        // # karakterlerini yazdır
+        for (int hash = 0; hash < row; hash++)
         {
             printf("#");
         }
 
-        // Print a newline to end the row.
         printf("\n");
     }
 
