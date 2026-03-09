@@ -14,10 +14,9 @@
 // How to compile:  make cash
 // How to run:      ./cash
 // How to check:    check50 cs50/problems/2024/x/cash
-#include <cs50.h>
 #include <stdio.h>
 
-// Function prototypes — do NOT change these signatures
+// Function prototypes
 int get_cents(void);
 int calculate_quarters(int cents);
 int calculate_dimes(int cents);
@@ -29,7 +28,7 @@ int main(void)
     // Get the number of cents owed
     int cents = get_cents();
 
-    // Calculate the number of each coin
+    // Calculate coins
     int quarters = calculate_quarters(cents);
     cents -= quarters * 25;
 
@@ -41,55 +40,41 @@ int main(void)
 
     int pennies = calculate_pennies(cents);
 
-    // Print the total number of coins
+    // Print total coins
     printf("%i\n", quarters + dimes + nickels + pennies);
 }
 
-// ---------------------------------------------------------------------------
-// TODO: Implement the functions below.
-// Each function receives the remaining cents and returns how many
-// of that coin fit into it.
-// ---------------------------------------------------------------------------
-
-// Prompt the user for a non-negative number of cents
+// Prompt user for a non-negative number
 int get_cents(void)
 {
     int cents;
-    // TODO: Use a do-while loop with get_int("Change owed: ")
-    //       Re-prompt if the value is negative.
-    do {
-        cents = get_int("Change owed: ");
-    }
-    while(cents < 0);
 
-    // TODO: return the valid value
+    do
+    {
+        printf("Change owed: ");
+        scanf("%d", &cents);
+    }
+    while (cents < 0);
+
     return cents;
 }
 
-// Return how many quarters fit in `cents`
 int calculate_quarters(int cents)
 {
-   return cents / 25;
-
+    return cents / 25;
 }
 
-// Return how many dimes fit in `cents`
 int calculate_dimes(int cents)
 {
     return cents / 10;
-
 }
 
-// Return how many nickels fit in `cents`
 int calculate_nickels(int cents)
 {
     return cents / 5;
-
 }
 
-// Return how many pennies fit in `cents`
 int calculate_pennies(int cents)
 {
-    return cents / 1;
-
+    return cents;
 }
