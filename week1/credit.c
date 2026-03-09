@@ -10,7 +10,6 @@
 // How to run:      ./credit
 // How to check:    check50 cs50/problems/2024/x/credit
 
-#include <cs50.h>
 #include <stdio.h>
 
 // ---------------------------------------------------------------------------
@@ -32,7 +31,9 @@ int main(void)
 {
     // TODO: Prompt user for a credit card number using get_long()
     //       Hint: card numbers can exceed int range — use `long`
-    long card = get_long("Card Number: ");
+   long card;
+printf("Number: ");
+scanf("%ld", &card);
 
 
 
@@ -121,34 +122,32 @@ int main(void)
     //               Hint for VISA: first2 / 10 == 4
     //   Otherwise:  INVALID
 
-    long first_digits = card;
-    while (first_digits >= 100)
-    {
-        first_digits /= 10;
-    }
+   long first_digits = card;
 
-    int first2 = first_digits;
-    int first1 = first2 / 10;
+while (first_digits >= 100)
+{
+    first_digits /= 10;
+}
 
-    if (length == 15 && (first2 == 34 || first2 == 37))
-    {
-        printf("AMEX\n");
-    }
-    else if (length == 16 && first2 >= 51 && first2 <= 55)
-    {
-        printf("MASTERCARD\n");
-    }
-    else if ((length == 13 || length == 16) && first1 == 4)
-    {
-        printf("VISA\n");
-    }
-    else
-    {
-        printf("INVALID\n");
-    }
+int first2 = first_digits;     // ilk iki rakam
+int first1 = first2 / 10;      // ilk rakam
 
-    return 0;
+if (length == 15 && (first2 == 34 || first2 == 37))
+{
+    printf("AMEX\n");
+}
+else if (length == 16 && first2 >= 51 && first2 <= 55)
+{
+    printf("MASTERCARD\n");
+}
+else if ((length == 13 || length == 16) && first1 == 4)
+{
+    printf("VISA\n");
+}
+else
+{
+    printf("INVALID\n");
+}
 
-
-
+return 0;
 }
