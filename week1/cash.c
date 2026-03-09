@@ -14,7 +14,6 @@
 // How to compile:  make cash
 // How to run:      ./cash
 // How to check:    check50 cs50/problems/2024/x/cash
-
 #include <cs50.h>
 #include <stdio.h>
 
