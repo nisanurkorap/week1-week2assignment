@@ -15,40 +15,39 @@
 // How to run:      ./mario_more
 // How to check:    check50 cs50/problems/2024/x/mario/more
 
-#include <cs50.h>
 #include <stdio.h>
 
 int main(void)
 {
     int height;
 
-    // TODO: Same do-while input validation as mario.c (height 1–8)
+    // Kullanıcıdan 1-8 arasında yükseklik al
     do
     {
-        height = get_int("Height: ");
-
+        printf("Height: ");
+        scanf("%d", &height);
     }
     while (height < 1 || height > 8);
 
-    // TODO: Print each row of the double pyramid
+    // Piramidi yazdır
     for (int row = 1; row <= height; row++)
     {
-        // TODO: Print (height - row) leading spaces
-        for (int space = 0; space < height- row; space++)
+        // boşluklar
+        for (int space = 0; space < height - row; space++)
         {
             printf(" ");
         }
 
-        // TODO: Print (row) hashes — LEFT side
+        // sol #
         for (int hash = 0; hash < row; hash++)
         {
             printf("#");
         }
 
-        // The gap between the two pyramids is always exactly two spaces.
+        // ortadaki iki boşluk
         printf("  ");
 
-        // TODO: Print (row) hashes — RIGHT side (mirror of left, no leading spaces)
+        // sağ #
         for (int hash = 0; hash < row; hash++)
         {
             printf("#");
